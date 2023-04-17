@@ -29,7 +29,7 @@ public class TS_ProfileMelodyUtils {
     }
 
     public static Connection createProxy(Connection con) {
-        return TGS_UnSafe.compile(() -> {
+        return TGS_UnSafe.call(() -> {
             DriverManager.registerDriver(new net.bull.javamelody.JdbcDriver());
             return JdbcWrapper.SINGLETON.createConnectionProxy(con);
         }, e -> {
@@ -39,7 +39,7 @@ public class TS_ProfileMelodyUtils {
     }
 
     public static DataSource createProxy(DataSource ds) {
-        return TGS_UnSafe.compile(() -> {
+        return TGS_UnSafe.call(() -> {
             DriverManager.registerDriver(new net.bull.javamelody.JdbcDriver());
             return JdbcWrapper.SINGLETON.createDataSourceProxy(ds);
         }, e -> {
