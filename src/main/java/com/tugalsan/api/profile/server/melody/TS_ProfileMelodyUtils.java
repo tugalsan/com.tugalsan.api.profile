@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import net.bull.javamelody.*;
 import com.tugalsan.api.profile.client.*;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 import com.tugalsan.api.unsafe.client.*;
 
 public class TS_ProfileMelodyUtils {
@@ -28,23 +29,21 @@ public class TS_ProfileMelodyUtils {
 
     }
 
-    public static Connection createProxy(Connection con) {
+    public static TGS_UnionExcuse<Connection> createProxy(Connection con) {
         return TGS_UnSafe.call(() -> {
             DriverManager.registerDriver(new net.bull.javamelody.JdbcDriver());
-            return JdbcWrapper.SINGLETON.createConnectionProxy(con);
+            return TGS_UnionExcuse.of(JdbcWrapper.SINGLETON.createConnectionProxy(con));
         }, e -> {
-            e.printStackTrace();
-            return null;
+            return TGS_UnionExcuse.ofExcuse(e);
         });
     }
 
-    public static DataSource createProxy(DataSource ds) {
+    public static TGS_UnionExcuse<DataSource> createProxy(DataSource ds) {
         return TGS_UnSafe.call(() -> {
             DriverManager.registerDriver(new net.bull.javamelody.JdbcDriver());
-            return JdbcWrapper.SINGLETON.createDataSourceProxy(ds);
+            return TGS_UnionExcuse.of(JdbcWrapper.SINGLETON.createDataSourceProxy(ds));
         }, e -> {
-            e.printStackTrace();
-            return null;
+            return TGS_UnionExcuse.ofExcuse(e);
         });
     }
 }
