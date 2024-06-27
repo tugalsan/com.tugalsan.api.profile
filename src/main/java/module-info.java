@@ -5,6 +5,6 @@ module com.tugalsan.api.profile {
     requires com.tugalsan.api.url;
     requires com.tugalsan.api.unsafe;
     requires com.tugalsan.api.union;
-    requires com.tugalsan.api.callable;
+    requires com.tugalsan.api.function;
     exports com.tugalsan.api.profile.server.melody;
 }
