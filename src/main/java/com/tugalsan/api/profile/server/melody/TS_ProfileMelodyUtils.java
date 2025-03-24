@@ -1,6 +1,6 @@
 package com.tugalsan.api.profile.server.melody;
 
-import com.tugalsan.api.function.client.maythrow.checkedexceptions.TGS_FuncMTCEUtils;
+import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
 import java.sql.*;
 import javax.sql.*;
 import javax.servlet.*;
@@ -31,7 +31,7 @@ public class TS_ProfileMelodyUtils {
     }
 
     public static TGS_UnionExcuse<Connection> createProxy(Connection con) {
-        return TGS_FuncMTCEUtils.call(() -> {
+        return TGS_FuncMTCUtils.call(() -> {
             DriverManager.registerDriver(new net.bull.javamelody.JdbcDriver());
             return TGS_UnionExcuse.of(JdbcWrapper.SINGLETON.createConnectionProxy(con));
         }, e -> {
@@ -40,7 +40,7 @@ public class TS_ProfileMelodyUtils {
     }
 
     public static TGS_UnionExcuse<DataSource> createProxy(DataSource ds) {
-        return TGS_FuncMTCEUtils.call(() -> {
+        return TGS_FuncMTCUtils.call(() -> {
             DriverManager.registerDriver(new net.bull.javamelody.JdbcDriver());
             return TGS_UnionExcuse.of(JdbcWrapper.SINGLETON.createDataSourceProxy(ds));
         }, e -> {
