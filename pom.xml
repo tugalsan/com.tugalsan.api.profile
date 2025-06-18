@@ -15,7 +15,7 @@
         <dependency>
             <groupId>net.bull.javamelody</groupId>
             <artifactId>javamelody-core</artifactId>
-            <version>1.99.2</version>
+            <version>1.99.3</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
