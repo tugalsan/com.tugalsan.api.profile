@@ -1,14 +1,12 @@
 package com.tugalsan.api.profile.server.melody;
 
-import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
-import java.sql.*;
-import javax.sql.*;
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import net.bull.javamelody.*;
-import com.tugalsan.api.profile.client.*;
-import com.tugalsan.api.union.client.TGS_UnionExcuse;
-
+import module com.tugalsan.api.function;
+import module com.tugalsan.api.union;
+import module com.tugalsan.api.profile;
+import module javamelody.core;
+import module javax.servlet.api;
+import module java.sql;
+import javax.sql.DataSource;
 
 public class TS_ProfileMelodyUtils {
 
