@@ -1,6 +1,7 @@
 package com.tugalsan.api.profile.client;
 
-import module com.tugalsan.api.url;
+import com.tugalsan.api.url.client.TGS_Url;
+import com.tugalsan.api.url.client.parser.TGS_UrlParser;
 
 public class TGS_ProfileServletUtils {
 
